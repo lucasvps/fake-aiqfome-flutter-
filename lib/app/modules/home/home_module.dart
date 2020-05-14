@@ -11,6 +11,7 @@ class HomeModule extends ChildModule {
   @override
   List<Router> get routers => [
         Router(Modular.initialRoute, child: (_, args) => HomePage()),
+        //Router('/list', child: (_, args) => ListPlaces())
       ];
 
   static Inject get to => Inject<HomeModule>.of();

@@ -4,6 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:food_app/app/app_widget.dart';
 import 'package:food_app/app/modules/home/home_module.dart';
 
+import 'modules/home/places/places_module.dart';
+
+
+
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
@@ -13,6 +17,7 @@ class AppModule extends MainModule {
   @override
   List<Router> get routers => [
         Router(Modular.initialRoute, module: HomeModule()),
+        Router('/list', module: PlacesModule())
       ];
 
   @override

@@ -15,16 +15,90 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
   //use 'controller' variable to access controller
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        key: _scaffoldKey,
+        drawer: Drawer(
+            child: Container(
+          color: Colors.deepPurple,
+          child: ListView(
+            children: <Widget>[
+              Row(
+                children: <Widget>[
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.3,
+                      height: MediaQuery.of(context).size.height * 0.15,
+                      decoration: BoxDecoration(
+                          image: DecorationImage(
+                              image: NetworkImage(
+                                  'https://cdn4.iconfinder.com/data/icons/avatars-xmas-giveaway/128/batman_hero_avatar_comics-512.png'))),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                          'oi Lucas',
+                          style: TextStyle(fontSize: 20, color: Colors.white),
+                        ),
+                        SizedBox(height: 8),
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.2,
+                          child: Text(
+                            'fominha há 3 semanas',
+                            style: TextStyle(fontSize: 15, color: Colors.white),
+                          ),
+                        ),
+                        SizedBox(height: 8),
+                        Text(
+                          '4 pedidos',
+                          style: TextStyle(fontSize: 15, color: Colors.white),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+              Divider(
+                color: Colors.black,
+              ),
+              InkWell(
+                onTap: () {},
+                child: ListTile(
+                  leading: Icon(
+                    Icons.fastfood,
+                    color: Colors.white,
+                  ),
+                  title: Text(
+                    'pedidos',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              )
+            ],
+          ),
+        )),
+        drawerScrimColor: Colors.white54,
         floatingActionButton: FloatingActionButton(
           onPressed: () {},
           backgroundColor: Colors.deepPurple,
           child: Icon(Icons.filter_list),
         ),
         appBar: AppBar(
+          leading: IconButton(
+            icon: Icon(
+              Icons.menu,
+              color: Colors.deepPurple,
+            ),
+            onPressed: () => _scaffoldKey.currentState.openDrawer(),
+          ),
           backgroundColor: Colors.white,
           actions: <Widget>[
             Row(
@@ -48,17 +122,20 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ],
             )
           ],
-          title: Text(widget.title),
+          title: Text(
+            'AIQFOME LAYOUT',
+            style: TextStyle(color: Colors.deepPurple),
+          ),
+          centerTitle: true,
         ),
-        body: Container(
-          
-          width: double.maxFinite,
+        body: SingleChildScrollView(
           child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Flexible(
                 fit: FlexFit.loose,
                 child: Container(
-                  height: MediaQuery.of(context).size.height * 0.1,
+                  height: MediaQuery.of(context).size.height * 0.15,
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: <Widget>[
@@ -67,19 +144,19 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                           CircleFood(
                               icon: Icons.local_pizza, type: 'Pizza', size: 40),
                           CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                              icon: Icons.fastfood, type: 'Lanches', size: 35),
                           CircleFood(
                               icon: Icons.local_pizza, type: 'Pizza', size: 40),
                           CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                              icon: Icons.fastfood, type: 'Lanches', size: 35),
                           CircleFood(
                               icon: Icons.local_pizza, type: 'Pizza', size: 40),
                           CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                              icon: Icons.fastfood, type: 'Lanches', size: 35),
                           CircleFood(
                               icon: Icons.local_pizza, type: 'Pizza', size: 40),
                           CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                              icon: Icons.fastfood, type: 'Lanches', size: 35),
                           CircleFood(
                               icon: Icons.local_pizza, type: 'Pizza', size: 40),
                         ],
@@ -90,18 +167,21 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
               ),
               TitleWidget(
                 text: 'novos!',
+                list: controller.list,
               ),
               CustomListView(
                 list: controller.list,
               ),
               TitleWidget(
                 text: 'entrega free + promo',
+                list: controller.list2,
               ),
               CustomListView(list: controller.list2),
-              // TitleWidget(
-              //   text: 'mais um teste rapazeada',
-              // ),
-              // CustomListView(list: controller.list)
+              TitleWidget(
+                text: 'fechados',
+                list: controller.list3,
+              ),
+              CustomListView(list: controller.list3),
             ],
           ),
         ));
