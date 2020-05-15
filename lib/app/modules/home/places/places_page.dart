@@ -17,10 +17,12 @@ class _ListPlacesState extends ModularState<ListPlaces, HomeController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        iconTheme: IconThemeData(color: Colors.deepPurple),
+        backgroundColor: Colors.white,
+        title: Text(widget.title, style: TextStyle(color: Colors.deepPurple)),
       ),
       body: Container(
-        color: Colors.white,
+        color: Color(0xfff3f3f3),
         child: ListView.builder(
           scrollDirection: Axis.vertical,
           itemCount: widget.list.length,
@@ -32,6 +34,7 @@ class _ListPlacesState extends ModularState<ListPlaces, HomeController> {
                 //color: Colors.grey.withOpacity(10),
                 //height: MediaQuery.of(context).size.height * 0.12,
                 child: Card(
+                  color: Color(0xfff3f3f3),
                   //color: Colors.grey[200],
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -45,7 +48,8 @@ class _ListPlacesState extends ModularState<ListPlaces, HomeController> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
                                 Container(
-                                  width: MediaQuery.of(context).size.width * 0.35,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.35,
                                   child: Text(
                                     list[index].name,
                                     style: TextStyle(
@@ -63,16 +67,16 @@ class _ListPlacesState extends ModularState<ListPlaces, HomeController> {
                                       Container(
                                         padding: EdgeInsets.all(5),
                                         decoration:
-                                            BoxDecoration(color: Colors.yellow),
+                                            BoxDecoration(color: Colors.orangeAccent),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: <Widget>[
                                             Text(list[index].avaliation,
                                                 style: TextStyle(
-                                                    color: Colors.grey)),
+                                                    color: Colors.white)),
                                             SizedBox(width: 2),
                                             Icon(Icons.star,
-                                                size: 15, color: Colors.grey)
+                                                size: 15, color: Colors.white)
                                           ],
                                         ),
                                       ),
@@ -82,14 +86,14 @@ class _ListPlacesState extends ModularState<ListPlaces, HomeController> {
                                       Container(
                                         padding: EdgeInsets.all(5),
                                         decoration: BoxDecoration(
-                                            color: Colors.lightGreenAccent),
+                                            color: Color(0xff37b4ad)),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.min,
                                           children: <Widget>[
                                             Icon(
                                               Icons.motorcycle,
                                               size: 15,
-                                              color: Colors.grey,
+                                              color: Colors.white,
                                             ),
                                             SizedBox(
                                               width: 8,
@@ -97,7 +101,7 @@ class _ListPlacesState extends ModularState<ListPlaces, HomeController> {
                                             Text(
                                               'R\$ ${list[index].deliveryPrice.toString()}',
                                               style: TextStyle(
-                                                color: Colors.grey,
+                                                color: Colors.white,
                                               ),
                                             ),
                                           ],
@@ -116,8 +120,8 @@ class _ListPlacesState extends ModularState<ListPlaces, HomeController> {
                         child: Stack(
                           children: <Widget>[
                             Container(
-                              width: MediaQuery.of(context).size.width * 0.32,
-                              height: MediaQuery.of(context).size.height * 0.15,
+                              width: MediaQuery.of(context).size.width * 0.29,
+                              height: MediaQuery.of(context).size.height * 0.12,
                               decoration: BoxDecoration(
                                   borderRadius:
                                       BorderRadius.all(Radius.circular(20)),

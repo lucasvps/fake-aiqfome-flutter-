@@ -70,7 +70,9 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                 color: Colors.black,
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Modular.to.pushNamed('/orders');
+                },
                 child: ListTile(
                   leading: Icon(
                     Icons.fastfood,
@@ -99,6 +101,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
             ),
             onPressed: () => _scaffoldKey.currentState.openDrawer(),
           ),
+          iconTheme: IconThemeData(color: Colors.deepPurple),
           backgroundColor: Colors.white,
           actions: <Widget>[
             Row(
@@ -128,61 +131,64 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
           ),
           centerTitle: true,
         ),
-        body: SingleChildScrollView(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: <Widget>[
-              Flexible(
-                fit: FlexFit.loose,
-                child: Container(
-                  height: MediaQuery.of(context).size.height * 0.15,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    children: <Widget>[
-                      Row(
-                        children: <Widget>[
-                          CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
-                          CircleFood(
-                              icon: Icons.fastfood, type: 'Lanches', size: 35),
-                          CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
-                          CircleFood(
-                              icon: Icons.fastfood, type: 'Lanches', size: 35),
-                          CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
-                          CircleFood(
-                              icon: Icons.fastfood, type: 'Lanches', size: 35),
-                          CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
-                          CircleFood(
-                              icon: Icons.fastfood, type: 'Lanches', size: 35),
-                          CircleFood(
-                              icon: Icons.local_pizza, type: 'Pizza', size: 40),
-                        ],
-                      )
-                    ],
+        body: Container(
+          color: Color(0xfff3f3f3),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: <Widget>[
+                Flexible(
+                  fit: FlexFit.loose,
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.15,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: <Widget>[
+                        Row(
+                          children: <Widget>[
+                            CircleFood(
+                                icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                            CircleFood(
+                                icon: Icons.fastfood, type: 'Lanches', size: 35),
+                            CircleFood(
+                                icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                            CircleFood(
+                                icon: Icons.fastfood, type: 'Lanches', size: 35),
+                            CircleFood(
+                                icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                            CircleFood(
+                                icon: Icons.fastfood, type: 'Lanches', size: 35),
+                            CircleFood(
+                                icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                            CircleFood(
+                                icon: Icons.fastfood, type: 'Lanches', size: 35),
+                            CircleFood(
+                                icon: Icons.local_pizza, type: 'Pizza', size: 40),
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 ),
-              ),
-              TitleWidget(
-                text: 'novos!',
-                list: controller.list,
-              ),
-              CustomListView(
-                list: controller.list,
-              ),
-              TitleWidget(
-                text: 'entrega free + promo',
-                list: controller.list2,
-              ),
-              CustomListView(list: controller.list2),
-              TitleWidget(
-                text: 'fechados',
-                list: controller.list3,
-              ),
-              CustomListView(list: controller.list3),
-            ],
+                TitleWidget(
+                  text: 'novos!',
+                  list: controller.list,
+                ),
+                CustomListView(
+                  list: controller.list,
+                ),
+                TitleWidget(
+                  text: 'entrega free + promo',
+                  list: controller.list2,
+                ),
+                CustomListView(list: controller.list2),
+                TitleWidget(
+                  text: 'fechados',
+                  list: controller.list3,
+                ),
+                CustomListView(list: controller.list3),
+              ],
+            ),
           ),
         ));
   }
