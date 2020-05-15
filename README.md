@@ -1,7 +1,7 @@
 # aiqfome layout - Flutter Application
 
-<img src='lib/github-images/home.PNG' heigth='300' width='250'> <img src='lib/github-images/places.PNG' heigth='300' width='250'>
-<img src='lib/github-images/drawer.PNG' heigth='300' width='250'> <img src='lib/github-images/orders.PNG' heigth='300' width='250'>
+<img src='lib/github-images/home.PNG' heigth='300' width='250'>    <img src='lib/github-images/places.PNG' heigth='300' width='250'>
+<img src='lib/github-images/drawer.PNG' heigth='300' width='250'>    <img src='lib/github-images/orders.PNG' heigth='300' width='250'>
 
 
 ## About this project
